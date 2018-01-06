@@ -7,8 +7,11 @@ import org.apache.spark.sql.SQLContext;
 
 /**
  * JSON数据源
+ * Run spark job submit 
+ * vorahost:~ 
+ * # spark-submit --jars /opt/vora/lib/vora-spark/lib/spark-sap-datasources-1.4.2.20-vora-1.4-assembly.jar 
+ *                --class com.documentengine.json.CSVataSourceReviewsVoraHost vorademo.jar
  * @author Yanbing
- * spark-submit --jars /opt/vora/lib/vora-spark/lib/spark-sap-datasources-1.4.2.20-vora-1.4-assembly.jar --class come.documentengine.json.JSONDataSourceReviewsVoraHost vorademo.jar
  */
 public class JSONDataSourceReviewsVoraHost {
 

@@ -29,7 +29,7 @@ public class JSONDataSourceReviewsLocal {
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new SQLContext(sc);
 		
-		DataFrame reviewsDF = sqlContext.read().json("reviews.json");  
+		DataFrame reviewsDF = sqlContext.read().json("./data/reviews.json");  
 		reviewsDF.registerTempTable("product_reviews");
 		DataFrame reviewsDFById = sqlContext.sql(
 				"select Document_id DOCUMENT_ID,"

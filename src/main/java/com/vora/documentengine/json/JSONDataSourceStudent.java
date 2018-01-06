@@ -31,7 +31,7 @@ public class JSONDataSourceStudent {
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new SQLContext(sc);
 		
-		DataFrame studentScoresDF = sqlContext.read().json("student.json");  
+		DataFrame studentScoresDF = sqlContext.read().json("./data/student.json");  
 		
 		studentScoresDF.registerTempTable("student_scores");
 		DataFrame goodStudentScoresDF = sqlContext.sql(
@@ -102,7 +102,7 @@ public class JSONDataSourceStudent {
 		DataFrame goodStudentsDF = sqlContext.createDataFrame(goodStudentRowsRDD, structType);
 		
 		goodStudentsDF.show();
-//		goodStudentsDF.write().format("json").save("hdfs://hadoop1:9000/output/good-students");  
+//		goodStudentsDF.write().format("json").save("hdfs://vorahost:9000/output/good-students");  
 	}
 	
 }

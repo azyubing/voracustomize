@@ -12,14 +12,14 @@ import org.apache.spark.sql.types.StructField;
 import org.apache.spark.sql.types.StructType;
 
 /**
- * JSON数据源
+ * CSV数据源
  * @author Yanbing
  */
 public class CSVDataSourceReviewsLocal {
 
 	public static void main(String[] args) {
 		SparkConf conf = new SparkConf()
-				.setAppName("JSONDataSourceReviewLocal")
+				.setAppName("CSVDataSourceReviewLocal")
 				.setMaster("local");  
 		JavaSparkContext sc = new JavaSparkContext(conf);
 		SQLContext sqlContext = new SQLContext(sc);	
@@ -27,7 +27,7 @@ public class CSVDataSourceReviewsLocal {
 		HashMap<String, String> options = new HashMap<String, String>();
 		
 		options.put("header", "true");
-		options.put("path", "products.csv");
+		options.put("path", "./data/products.csv");
 		
 		StructType customProductsSchema = new StructType(new StructField[] {
 			    new StructField("model", DataTypes.StringType, true, Metadata.empty()),
@@ -42,7 +42,7 @@ public class CSVDataSourceReviewsLocal {
 			    .schema(customProductsSchema)
 			    .option("header", "false")
 			    .option("charset", "UTF8")
-			    .load("products.csv");
+			    .load("./data/products.csv");
 		
 		productsDF.show();
 				
